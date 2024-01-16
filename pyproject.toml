@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dailywriter"
+version = "0.1.0"
+description = "A web application that develops a daily writing habit and content writing habit for people with some nice ideas to share with the world"
+authors = ["RodrickAsiimawe <rodrickpablocode@gmail.com>"]
+license = "\"MIT\""
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

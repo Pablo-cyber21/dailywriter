@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+
+  <style>
+    body{
+      text-align: center;
+      
+
+    }
+
+    label{
+      display: none;
+    }
+
+    button{ 
+      padding: .77em 2em;
+    }
+
+    form{
+      padding: 2em 1em;
+      font-size: 1.44em;
+    }
+
+    input{
+      padding: .55em 2em; 
+      border: none;
+      border-bottom: 1px solid #000;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  {% extends "daily_writer_app/base.html" %}
+ {% block title %} Sign Up {% endblock %} 
+ {% block content %}
+<form method="POST">
+  {% csrf_token %}
+  
+      
+      <input type="text" name="username" maxlength="150" autofocus required id="id_username" placeholder="Username">
+      
+        <br>  
+        <br>
+      
+      <input type="email" name="email" maxlength="320" placeholder="Enter-email" required id="id_email">  
+      <br>
+      <br>
+      <br>
+      <input type="password" name="password1" autocomplete="new-password" placeholder="Password" required id="id_password1">
+      
+        <br>
+        <br>    
+      <input type="password" name="password2" placeholder="confirm password" autocomplete="new-password" required id="id_password2">
+      
+        <br>
+        <br>
+
+  <a href="/login">Login </a>
+  <br>
+  <br>
+
+  <button type="submit" class="btn-on-success">Register</button>
+</form>
+{% endblock %}
+
+</body>
+</html>

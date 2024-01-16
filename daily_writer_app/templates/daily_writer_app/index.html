@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+<title>Daily Note - Make those bright ideas shine.</title>
+<meta name="title" content="Daily Note - Make those bright ideas shine." />
+<meta name="description" content="Daily note is a platform where you can easily share brilliant and insightful ideas on your social media, building a writing habit and your social capital. " />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://metatags.io/" />
+<meta property="og:title" content="Daily Note - Make those bright ideas shine." />
+<meta property="og:description" content="Daily note is a platform where you can easily share brilliant and insightful ideas on your social media, building a writing habit and your social capital. " />
+<meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://metatags.io/" />
+<meta property="twitter:title" content="Daily Note - Make those bright ideas shine." />
+<meta property="twitter:description" content="Daily note is a platform where you can easily share brilliant and insightful ideas on your social media, building a writing habit and your social capital. " />
+<meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+<!-- Meta Tags Generated with https://metatags.io -->
+    <title>Home</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .date {
+        font-size: 1.22em;
+        font-weight: 600;
+      }
+
+      .entry {
+        width: 200px;
+        margin-left: 2em;
+        background-color: azure;
+        padding: 1em;
+        border-radius: 10px;
+      }
+
+      .intro-info {
+        margin: 1em 4.44em;
+      }
+
+      .about_daily_note {
+        font-size: 1.33em;
+      }
+    </style>
+  </head>
+  <body>
+    {% extends "daily_writer_app/base.html" %} {% block content %}
+
+    <div class="intro-info">
+      <h1>Daily Note</h1>
+      <em>
+        <p class="about_daily_note"
+          >Share your most inspiring ideas with the internet with daily note.</p
+        ></em
+      >
+      <br />
+      <h3><p>Your recent entries</p></h3>
+      <br />
+      <p><a href="/new_entry/">New entry</a></p>
+    </div>
+
+    <div class="entries">
+      {% for entry in entries %}
+
+      <div class="entry">
+        <p class="date">{{ entry.date_added|date:'M d, Y ' }}</p>
+        <p>{{ entry.text|linebreaks }}</p>
+
+        <!-- <a href="#">Share</a> -->
+        <a
+          class="twitter-share-button"
+          href="https://twitter.com/intent/tweet?text=Hello%20world"
+        >
+          Tweet</a
+        >
+        <a href="{% url 'edit_entry' entry.id %}">edit entry</a>
+      </div>
+
+      {% empty %}
+      <li> There are no entries for this topic yet. </li>
+      {% endfor %}
+    </div>
+    {% endblock content %}
+  </body>
+
+  <script
+    async
+    src="https://platform.twitter.com/widgets.js"
+    charset="utf-8"
+  ></script>
+</html>

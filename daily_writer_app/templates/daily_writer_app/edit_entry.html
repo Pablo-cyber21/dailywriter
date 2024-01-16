@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Idea</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      h2 {
+        font-size: 2em;
+        margin-top: 1.33em;
+      }
+      .content {
+        margin: 5em 3em;
+        margin-left: 30%;
+        border: 1px solid aquamarine;
+        width: 500px;
+        padding: 2em 1em;
+        text-align: center;
+        border-radius: 15px;
+      }
+
+      button {
+        padding: 1em 1.33em;
+        border: none;
+        background-color: aquamarine;
+        border-radius: 10px;
+        font-weight: 800;
+      }
+
+      button:hover {
+        transition: ease-in 50ms;
+        background-color: bisque;
+        touch-action: auto;
+      }
+
+      textarea {
+        padding: 1.66em;
+      }
+    </style>
+  </head>
+  <body>
+    {% extends "daily_writer_app/base.html" %} {% block content %}
+
+    <div class="content">
+      <h2><p>Edit</p></h2>
+      <br />
+      <form action="{% url 'edit_entry' entry.id %}" method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <br />
+        <button href="/index" name="submit">Save Changes</button>
+      </form>
+    </div>
+    {% endblock content %}
+  </body>
+</html>
